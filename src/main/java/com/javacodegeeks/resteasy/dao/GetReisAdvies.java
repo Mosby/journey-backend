@@ -21,7 +21,7 @@ public class GetReisAdvies {
 	
 	private final Logger LOG = LoggerFactory.getLogger(GetReisAdvies.class);
 	private static final String REIS_ADVIEZEN_URL = "http://opendata.rijksoverheid.nl/v1/sources/rijksoverheid/infotypes/traveladvice";
-	private static final String REIS_ADVIES_URL = "http://opendata.rijksoverheid.nl/v1/sources/rijksoverheid/infotypes/traveladvice/306426a9-bc29-4cb6-82ab-a71f689f8be0";
+	private static final String REIS_ADVIES_URL = "http://opendata.rijksoverheid.nl/v1/sources/rijksoverheid/infotypes/traveladvice/";
 	
 	public Map<String, ReisAdvies> init(String locationId) {
 		try {
@@ -29,7 +29,7 @@ public class GetReisAdvies {
 			if(locationId.equals("all")) {
 				url = new URL(REIS_ADVIEZEN_URL);
 			} else {
-				url = new URL(REIS_ADVIES_URL); 
+				url = new URL(REIS_ADVIES_URL + locationId); 
 			}
 			SAXParserFactory spf = SAXParserFactory.newInstance();
             SAXParser sp = spf.newSAXParser();
